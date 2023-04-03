@@ -1,0 +1,11 @@
+.button {
+  padding: 0.8rem 1.6rem;
+  border: none;
+  background-color: $color_primary;
+  border-radius: 1rem;
+  transition: all 0.5s;
+  cursor: pointer;
+  &:hover {
+    transform: translateY(-0.4rem);
+  }
+}

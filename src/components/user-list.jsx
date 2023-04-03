@@ -7,7 +7,6 @@ const UserList = () => {
   useEffect(() => {
     fetchUser();
   }, []);
-  console.log(users);
   const fetchUser = async () => {
     try {
       await dispatch(getUsers());

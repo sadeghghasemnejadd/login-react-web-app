@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { loginHandler } from "../store/LoginSlice";
+import Button from "./button";
 const LoginForm = () => {
   const dispatch = useDispatch();
   const { loading } = useSelector((store) => store.login);
@@ -55,9 +56,7 @@ const LoginForm = () => {
               />
             </div>
           ))}
-          <button type="submit" className="login-form__form__btn">
-            login
-          </button>
+          <Button text="login" />
         </form>
       )}
     </section>
