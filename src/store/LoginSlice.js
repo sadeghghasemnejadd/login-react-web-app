@@ -24,9 +24,17 @@ export const getUsers = createAsyncThunk("getUsers", async () => {
     throw err;
   }
 });
+export const getUser = createAsyncThunk("getUser", async ({ id }) => {
+  try {
+    const { data } = await axios.get(`https://reqres.in/api/users/${id}`);
+    return data;
+  } catch (err) {
+    throw err;
+  }
+});
 const LoginSlice = createSlice({
   name: "login",
-  initialState: { loading: false, users: [] },
+  initialState: { loading: false, users: [], user: {} },
   extraReducers: {
     [loginHandler.pending]: (state) => {
       state.loading = true;
@@ -46,6 +54,17 @@ const LoginSlice = createSlice({
       state.loading = false;
     },
     [getUsers.rejected]: (state) => {
+      state.loading = false;
+    },
+    //////////////////////
+    [getUser.pending]: (state) => {
+      state.loading = true;
+    },
+    [getUser.fulfilled]: (state, action) => {
+      state.user = action.payload.data;
+      state.loading = false;
+    },
+    [getUser.rejected]: (state) => {
       state.loading = false;
     },
     //////////////////////

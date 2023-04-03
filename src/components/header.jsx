@@ -1,9 +1,11 @@
 import Button from "./button";
-
+import { useNavigate } from "react-router-dom";
 const Header = () => {
   const token = localStorage.getItem("token");
+  const navigate = useNavigate();
   const logoutHandler = async () => {
     await localStorage.removeItem("token");
+    navigate("/");
     window.location.reload();
   };
   return (
