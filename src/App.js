@@ -1,5 +1,11 @@
+import LoginForm from "./components/login-form";
+
 function App() {
-  return <h1>sadegh</h1>;
+  return (
+    <>
+      <LoginForm />
+    </>
+  );
 }
 
 export default App;
