@@ -17,19 +17,25 @@ const UserList = () => {
   };
   return (
     <section className="user-list">
-      {users.map((user) => (
-        <div key={user.id} className="user-list__item">
-          <img
-            src={user.avatar}
-            alt={user.first_name}
-            className="user-list__item__image"
-          />
-          <p className="user-list__item__name">
-            {user.first_name} {user.last_name}
-          </p>
-          <p className="user-list__item__email">{user.email}</p>
-        </div>
-      ))}
+      {loading ? (
+        <p>loading...</p>
+      ) : (
+        <>
+          {users.map((user) => (
+            <div key={user.id} className="user-list__item">
+              <img
+                src={user.avatar}
+                alt={user.first_name}
+                className="user-list__item__image"
+              />
+              <p className="user-list__item__name">
+                {user.first_name} {user.last_name}
+              </p>
+              <p className="user-list__item__email">{user.email}</p>
+            </div>
+          ))}
+        </>
+      )}
     </section>
   );
 };
